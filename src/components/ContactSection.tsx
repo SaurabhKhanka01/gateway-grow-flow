@@ -48,7 +48,7 @@ END:VCARD`;
           transition={{ delay: 0.2 }}
           className="max-w-2xl mx-auto grid sm:grid-cols-2 gap-4"
         >
-          <a href="tel:+919999999999" className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all group card-shadow" aria-label="Call">
+          <a href="tel:+919058522279" className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all group card-shadow" aria-label="Call">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
               <Phone size={20} className="text-primary group-hover:text-white transition-colors" />
             </div>
