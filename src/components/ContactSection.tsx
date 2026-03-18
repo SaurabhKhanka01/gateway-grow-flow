@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Phone, MessageCircle, Mail, Download, MapPin, Clock } from "lucide-react";
 
 const ContactSection = () => {
-  const whatsappNumber = "919999999999";
+  const whatsappNumber = "919058522279";
 
   const downloadVCard = () => {
     const vcard = `BEGIN:VCARD
@@ -11,9 +11,10 @@ N:Yadav;Deepak
 FN:Deepak Yadav
 ORG:DSY Hospitality Pvt. Ltd.
 TITLE:Founder & Director
-TEL;TYPE=CELL:+919999999999
+TEL;TYPE=CELL:+919058522279
 EMAIL:contact@dsyhospitality.com
 URL:https://dsyhospitality.com
+ADR;TYPE=WORK:;;Knowledge Park 3;Greater Noida;Uttar Pradesh;;India
 END:VCARD`;
     const blob = new Blob([vcard], { type: "text/vcard" });
     const url = URL.createObjectURL(blob);
@@ -47,13 +48,13 @@ END:VCARD`;
           transition={{ delay: 0.2 }}
           className="max-w-2xl mx-auto grid sm:grid-cols-2 gap-4"
         >
-          <a href="tel:+919999999999" className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all group card-shadow" aria-label="Call">
+          <a href="tel:+919058522279" className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all group card-shadow" aria-label="Call">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
               <Phone size={20} className="text-primary group-hover:text-white transition-colors" />
             </div>
             <div>
               <p className="font-body text-sm text-muted-foreground">Call</p>
-              <p className="font-body font-semibold text-foreground">+91 99999 99999</p>
+              <p className="font-body font-semibold text-foreground">+91 90585 22279</p>
             </div>
           </a>
 
