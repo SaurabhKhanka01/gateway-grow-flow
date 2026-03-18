@@ -75,7 +75,7 @@ const HeroSection = ({ onOpenQR }: HeroSectionProps) => {
               className="flex flex-wrap gap-3"
             >
               <a
-                href="tel:+919999999999"
+                href="tel:+919058522279"
                 className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-body font-semibold rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
                 aria-label="Call Deepak Yadav"
               >

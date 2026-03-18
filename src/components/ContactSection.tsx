@@ -54,7 +54,7 @@ END:VCARD`;
             </div>
             <div>
               <p className="font-body text-sm text-muted-foreground">Call</p>
-              <p className="font-body font-semibold text-foreground">+91 99999 99999</p>
+              <p className="font-body font-semibold text-foreground">+91 90585 22279</p>
             </div>
           </a>
 
