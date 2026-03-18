@@ -7,7 +7,7 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ onOpenQR }: HeroSectionProps) => {
-  const whatsappNumber = "919999999999";
+  const whatsappNumber = "919058522279";
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden" id="hero">
