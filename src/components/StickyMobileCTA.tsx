@@ -11,7 +11,7 @@ const StickyMobileCTA = ({ onOpenQR }: StickyMobileCTAProps) => {
     <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-card/95 backdrop-blur-md border-t border-border px-4 py-3 shadow-lg">
       <div className="flex items-center justify-around gap-2">
         <a
-          href="tel:+919999999999"
+          href="tel:+919058522279"
           className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-primary text-primary-foreground rounded-xl font-body font-semibold text-sm shadow-sm"
           aria-label="Call"
         >
