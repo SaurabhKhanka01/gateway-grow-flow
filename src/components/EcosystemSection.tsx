@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ArrowUpRight } from "lucide-react";
+import myBestVenueImg from "@/assets/screenshots/my-best-venue.png";
+import hestiaImg from "@/assets/screenshots/hestia-hotels.png";
+import dsyPgImg from "@/assets/screenshots/dsy-luxury-pg.png";
+import boldMicImg from "@/assets/screenshots/bold-mic.png";
+import yatraAddaImg from "@/assets/screenshots/yatra-adda.png";
+import himTaraImg from "@/assets/screenshots/him-tara.png";
 
 const brands = [
   {
@@ -8,52 +14,64 @@ const brands = [
     category: "Venue Discovery",
     filter: "Hotels",
     url: "https://mybestvenue.com",
-    description: "Discover and book the perfect venue for every occasion across India.",
-    color: "from-amber-500/20 to-orange-600/10",
-  },
-  {
-    name: "Yatra Adda",
-    category: "Travel & Experiences",
-    filter: "Travel",
-    url: "https://yatraadda.com",
-    description: "Curated travel experiences that transform journeys into stories.",
-    color: "from-blue-500/20 to-cyan-600/10",
+    screenshot: myBestVenueImg,
+    description: "Mybestvenue is a reliable online venue booking platform that helps users find the perfect space for every occasion across India. With a wide range of options, from affordable venues to premium locations, it ensures convenience, best pricing, and quality service. Whether it's corporate events or celebrations, Mybestvenue makes venue selection easy with trusted hospitality and locations near you.",
+    accent: "from-amber-500 to-orange-500",
+    bgAccent: "bg-amber-50",
   },
   {
     name: "The Hestia Hotels Group",
     category: "Hospitality",
     filter: "Hotels",
     url: "https://thehestiahotels.com",
-    description: "Premium hotel stays with world-class hospitality standards.",
-    color: "from-purple-500/20 to-violet-600/10",
-  },
-  {
-    name: "The Bold Mic",
-    category: "Media & Content",
-    filter: "Media",
-    url: "https://theboldmic.com",
-    description: "Bold stories and media content that captivate and inspire.",
-    color: "from-red-500/20 to-rose-600/10",
+    screenshot: hestiaImg,
+    description: "Hestia Hotel stands out as a reliable and growing hospitality brand in Delhi NCR, offering a perfect blend of comfort, affordability, and modern amenities. Located in Knowledge Park 3, Greater Noida, near the Noida Expo Centre with excellent metro connectivity, it ensures seamless travel for guests. With consistent service quality and a strong focus on guest satisfaction, it is ideal for both business and leisure travelers seeking a convenient and value-driven stay.",
+    accent: "from-blue-500 to-indigo-500",
+    bgAccent: "bg-blue-50",
   },
   {
     name: "DSY Luxury PG",
     category: "Premium PG Stays",
     filter: "PG",
     url: "https://dsyluxurypg.in",
-    description: "Luxury paying guest accommodations for the modern professional.",
-    color: "from-emerald-500/20 to-green-600/10",
+    screenshot: dsyPgImg,
+    description: "DSY Luxury PG stands out as an excellent choice for college students, offering a perfect blend of affordability, comfort, and modern amenities. Located in Knowledge Park 3, it provides convenient metro connectivity along with reliable cab services, including pickup and drop facilities. With its student-friendly environment and well-maintained facilities, it ensures a safe, comfortable, and hassle-free living experience for students.",
+    accent: "from-emerald-500 to-teal-500",
+    bgAccent: "bg-emerald-50",
+  },
+  {
+    name: "The Bold Mic",
+    category: "Media & Content",
+    filter: "Media",
+    url: "https://theboldmic.com",
+    screenshot: boldMicImg,
+    description: "Bold Mic is an emerging news channel committed to highlighting social issues with clarity, courage, and a bold perspective. It aims to bring real stories to the forefront, spark meaningful conversations, and raise awareness on topics that matter most. With fearless reporting and a strong voice, Bold Mic stands as a platform for truth, impact, and positive change in society.",
+    accent: "from-red-500 to-rose-500",
+    bgAccent: "bg-red-50",
+  },
+  {
+    name: "Yatra Adda",
+    category: "Travel & Experiences",
+    filter: "Travel",
+    url: "https://yatraadda.com",
+    screenshot: yatraAddaImg,
+    description: "YatraAdda is a growing travel platform designed to make trip planning simple, affordable, and convenient. From booking flights and hotels to complete holiday packages, it offers a seamless and user-friendly experience. With competitive pricing and reliable services, YatraAdda ensures that every journey is smooth, enjoyable, and perfectly tailored to travelers' needs.",
+    accent: "from-cyan-500 to-blue-500",
+    bgAccent: "bg-cyan-50",
   },
   {
     name: "Him Tara",
-    category: "Hill Destination Stay",
-    filter: "Travel",
+    category: "Mineral Water",
+    filter: "FMCG",
     url: "https://himtara.in",
-    description: "Serene hill destination stays amidst nature's finest landscapes.",
-    color: "from-teal-500/20 to-sky-600/10",
+    screenshot: himTaraImg,
+    description: "Himtara is a trusted mineral water brand delivering purity and freshness across India. With premium packaging and a strong focus on quality, it serves both B2B and B2C customers efficiently. Sourced and processed to ensure safe, refreshing hydration, Himtara stands out for reliability, wide distribution, and customer satisfaction, making it an ideal choice for homes, businesses, and organizations alike.",
+    accent: "from-sky-500 to-blue-600",
+    bgAccent: "bg-sky-50",
   },
 ];
 
-const filters = ["All", "Hotels", "Travel", "Media", "PG"];
+const filters = ["All", "Hotels", "Travel", "Media", "PG", "FMCG"];
 
 const EcosystemSection = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -61,33 +79,34 @@ const EcosystemSection = () => {
   const filtered = activeFilter === "All" ? brands : brands.filter((b) => b.filter === activeFilter);
 
   return (
-    <section id="ecosystem" className="py-20 sm:py-28 bg-secondary/30">
+    <section id="ecosystem" className="py-20 sm:py-28 bg-secondary/50">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-2">
+          <span className="inline-block text-sm font-body font-medium text-accent uppercase tracking-widest mb-3">Our Ventures</span>
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-3">
             The <span className="text-primary">Ecosystem</span>
           </h2>
-          <p className="font-body text-muted-foreground max-w-lg mx-auto">
+          <p className="font-body text-muted-foreground max-w-lg mx-auto text-lg">
             Six brands. One vision. Explore the DSY Hospitality universe.
           </p>
-          <div className="w-16 h-0.5 bg-primary mx-auto mt-4" />
+          <div className="w-16 h-1 bg-accent mx-auto mt-4 rounded-full" />
         </motion.div>
 
         {/* Filter bar */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
           {filters.map((f) => (
             <button
               key={f}
               onClick={() => setActiveFilter(f)}
-              className={`px-5 py-2 rounded-full text-sm font-body font-medium transition-all ${
+              className={`px-5 py-2.5 rounded-full text-sm font-body font-medium transition-all ${
                 activeFilter === f
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-muted-foreground hover:text-foreground border border-border"
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                  : "bg-card text-muted-foreground hover:text-foreground border border-border hover:border-primary/30"
               }`}
             >
               {f}
@@ -95,53 +114,62 @@ const EcosystemSection = () => {
           ))}
         </div>
 
-        {/* Brand grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {/* Brand cards */}
+        <div className="space-y-8 max-w-6xl mx-auto">
           {filtered.map((brand, i) => (
-            <motion.a
+            <motion.div
               key={brand.name}
-              href={`${brand.url}?utm_source=dsy_portfolio&utm_medium=brand_card&utm_campaign=ecosystem`}
-              target="_blank"
-              rel="noopener noreferrer"
-              id={brand.name.toLowerCase().replace(/\s+/g, "-")}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group relative block rounded-xl bg-card border border-border p-6 hover:border-primary/50 transition-all duration-300 hover:gold-glow"
+              id={brand.name.toLowerCase().replace(/\s+/g, "-")}
+              className="group bg-card rounded-2xl border border-border overflow-hidden card-shadow hover:card-shadow-hover transition-all duration-300"
             >
-              {/* Gradient accent */}
-              <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${brand.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-
-              <div className="relative z-10">
-                {/* Logo placeholder */}
-                <div className="w-14 h-14 rounded-lg bg-secondary border border-border flex items-center justify-center mb-4 group-hover:border-primary/30 transition-colors">
-                  <span className="font-heading text-xl font-bold text-primary">
-                    {brand.name.charAt(0)}
-                  </span>
+              <div className="grid md:grid-cols-[1.2fr_1fr] gap-0">
+                {/* Screenshot */}
+                <div className="relative overflow-hidden">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${brand.accent} opacity-5`} />
+                  <img
+                    src={brand.screenshot}
+                    alt={`${brand.name} website screenshot`}
+                    className="w-full h-56 md:h-72 object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-body font-semibold text-white bg-gradient-to-r ${brand.accent} shadow-sm`}>
+                      {brand.category}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Category tag */}
-                <span className="inline-block text-xs font-body tracking-wider uppercase text-primary mb-2">
-                  {brand.category}
-                </span>
+                {/* Content */}
+                <div className="p-6 md:p-8 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                      {brand.name}
+                    </h3>
+                    <p className="font-body text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
+                      {brand.description}
+                    </p>
+                  </div>
 
-                {/* Name */}
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {brand.name}
-                </h3>
-
-                {/* Description */}
-                <p className="font-body text-sm text-muted-foreground mb-4 leading-relaxed">
-                  {brand.description}
-                </p>
-
-                {/* CTA */}
-                <span className="inline-flex items-center gap-1 text-sm font-body font-medium text-primary group-hover:gap-2 transition-all">
-                  Visit Website <ExternalLink size={14} />
-                </span>
+                  <div className="flex items-center gap-3">
+                    <a
+                      href={`${brand.url}?utm_source=dsy_portfolio&utm_medium=brand_card&utm_campaign=ecosystem`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground font-body font-semibold text-sm rounded-xl hover:bg-primary/90 transition-all shadow-sm"
+                    >
+                      Visit Website <ArrowUpRight size={14} />
+                    </a>
+                    <span className="text-xs font-body text-muted-foreground flex items-center gap-1">
+                      <ExternalLink size={12} /> {brand.url.replace('https://', '')}
+                    </span>
+                  </div>
+                </div>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>
