@@ -12,12 +12,12 @@ const TrustStrip = () => {
   const marqueeContent = items.map((item) => `${item}  ·  `).join("");
 
   return (
-    <section id="trust" className="py-4 border-y border-border overflow-hidden bg-primary/5">
+    <section id="trust" className="py-2.5 sm:py-3 border-y border-border overflow-hidden bg-primary/5">
       <div className="animate-marquee whitespace-nowrap flex">
-        <span className="text-sm font-body tracking-[0.15em] uppercase text-primary font-medium">
+        <span className="text-[11px] sm:text-xs font-body tracking-[0.12em] uppercase text-primary font-medium">
           {marqueeContent}
         </span>
-        <span className="text-sm font-body tracking-[0.15em] uppercase text-primary font-medium">
+        <span className="text-[11px] sm:text-xs font-body tracking-[0.12em] uppercase text-primary font-medium">
           {marqueeContent}
         </span>
       </div>
