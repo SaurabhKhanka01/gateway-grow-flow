@@ -8,19 +8,21 @@ interface QRShareModalProps {
   onClose: () => void;
 }
 
-const PORTFOLIO_URL = "https://dsyhospitality.com?utm_source=qr_share&utm_medium=qr&utm_campaign=portfolio";
-
 const QRShareModal = ({ open, onClose }: QRShareModalProps) => {
+  const portfolioUrl = typeof window !== "undefined"
+    ? `${window.location.origin}?utm_source=qr_share&utm_medium=qr&utm_campaign=portfolio`
+    : "https://dsyhospitality.com?utm_source=qr_share&utm_medium=qr&utm_campaign=portfolio";
+
   const [copied, setCopied] = useState(false);
 
   const copyLink = useCallback(async () => {
-    await navigator.clipboard.writeText(PORTFOLIO_URL);
+    await navigator.clipboard.writeText(portfolioUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  }, []);
+  }, [portfolioUrl]);
 
   const shareWhatsApp = () => {
-    const text = encodeURIComponent(`Check out DSY Hospitality — India's premier hospitality ecosystem: ${PORTFOLIO_URL}`);
+    const text = encodeURIComponent(`Check out DSY Hospitality — India's premier hospitality ecosystem: ${portfolioUrl}`);
     window.open(`https://wa.me/?text=${text}`, "_blank");
   };
 
@@ -48,7 +50,7 @@ const QRShareModal = ({ open, onClose }: QRShareModalProps) => {
       await navigator.share({
         title: "DSY Hospitality — Deepak Yadav",
         text: "Explore India's premier hospitality ecosystem",
-        url: PORTFOLIO_URL,
+        url: portfolioUrl,
       });
     } else {
       shareWhatsApp();
@@ -62,7 +64,7 @@ const QRShareModal = ({ open, onClose }: QRShareModalProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/30 backdrop-blur-sm p-4"
           onClick={onClose}
         >
           <motion.div
@@ -70,52 +72,38 @@ const QRShareModal = ({ open, onClose }: QRShareModalProps) => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-sm bg-card border border-border rounded-2xl p-8 text-center"
+            className="relative w-full max-w-sm bg-card border border-border rounded-2xl p-8 text-center card-shadow"
           >
-            <button
-              onClick={onClose}
-              className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Close"
-            >
+            <button onClick={onClose} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors" aria-label="Close">
               <X size={20} />
             </button>
 
             <h3 className="font-heading text-xl font-bold text-foreground mb-1">Share Portfolio</h3>
-            <p className="font-body text-sm text-muted-foreground mb-6">Scan or share this QR code</p>
+            <p className="font-body text-sm text-muted-foreground mb-6">Scan this QR code to visit the portfolio</p>
 
-            <div className="bg-foreground rounded-xl p-4 inline-block mb-6 gold-glow">
+            <div className="bg-white rounded-2xl p-6 inline-block mb-6 shadow-inner border border-border">
               <QRCodeSVG
                 id="qr-code-svg"
-                value={PORTFOLIO_URL}
+                value={portfolioUrl}
                 size={200}
                 bgColor="#FFFFFF"
-                fgColor="#000000"
+                fgColor="#1e3a5f"
                 level="H"
               />
             </div>
 
+            <p className="text-xs font-body text-muted-foreground mb-4 break-all">{portfolioUrl.split('?')[0]}</p>
+
             <div className="grid grid-cols-3 gap-3">
-              <button
-                onClick={downloadQR}
-                className="flex flex-col items-center gap-1 p-3 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
-                aria-label="Download QR"
-              >
+              <button onClick={downloadQR} className="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors" aria-label="Download QR">
                 <Download size={18} className="text-primary" />
                 <span className="text-xs font-body text-muted-foreground">Download</span>
               </button>
-              <button
-                onClick={nativeShare}
-                className="flex flex-col items-center gap-1 p-3 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
-                aria-label="Share"
-              >
+              <button onClick={nativeShare} className="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors" aria-label="Share">
                 <Share2 size={18} className="text-primary" />
                 <span className="text-xs font-body text-muted-foreground">Share</span>
               </button>
-              <button
-                onClick={copyLink}
-                className="flex flex-col items-center gap-1 p-3 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
-                aria-label="Copy link"
-              >
+              <button onClick={copyLink} className="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors" aria-label="Copy link">
                 {copied ? <Check size={18} className="text-success" /> : <Copy size={18} className="text-primary" />}
                 <span className="text-xs font-body text-muted-foreground">{copied ? "Copied!" : "Copy"}</span>
               </button>

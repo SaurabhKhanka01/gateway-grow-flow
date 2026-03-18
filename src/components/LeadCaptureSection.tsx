@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Shield } from "lucide-react";
+import { Send, Shield, CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 
@@ -29,8 +29,6 @@ const LeadCaptureSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Honeypot check
     if (form._honey) return;
 
     const result = leadSchema.safeParse(form);
@@ -45,15 +43,13 @@ const LeadCaptureSection = () => {
 
     setErrors({});
     setSubmitting(true);
-
-    // Simulate submission (replace with actual API)
     await new Promise((r) => setTimeout(r, 1000));
     setSubmitting(false);
     navigate("/thank-you");
   };
 
   return (
-    <section id="lead-capture" className="py-20 sm:py-28 bg-secondary/30">
+    <section id="lead-capture" className="py-20 sm:py-28 bg-secondary/50">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,107 +57,84 @@ const LeadCaptureSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-2">
+          <span className="inline-block text-sm font-body font-medium text-accent uppercase tracking-widest mb-3">Get Started</span>
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-3">
             Let's <span className="text-primary">Connect</span>
           </h2>
-          <p className="font-body text-muted-foreground">Tell us what you're looking for. We'll get back within 2 hours.</p>
-          <div className="w-16 h-0.5 bg-primary mx-auto mt-4" />
+          <p className="font-body text-muted-foreground text-lg">Tell us what you're looking for. We'll get back within 2 hours.</p>
+          <div className="w-16 h-1 bg-accent mx-auto mt-4 rounded-full" />
         </motion.div>
 
-        <motion.form
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          onSubmit={handleSubmit}
-          className="max-w-lg mx-auto space-y-5"
-          noValidate
-        >
-          {/* Honeypot */}
-          <input
-            type="text"
-            name="_honey"
-            value={form._honey}
-            onChange={(e) => setForm({ ...form, _honey: e.target.value })}
-            className="hidden"
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-          />
-
-          {/* Name */}
-          <div>
-            <label htmlFor="name" className="block text-sm font-body text-muted-foreground mb-1">Full Name *</label>
-            <input
-              id="name"
-              type="text"
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground font-body focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-              placeholder="Your full name"
-            />
-            {errors.name && <p className="text-destructive text-xs mt-1 font-body">{errors.name}</p>}
-          </div>
-
-          {/* Phone */}
-          <div>
-            <label htmlFor="phone" className="block text-sm font-body text-muted-foreground mb-1">Phone Number *</label>
-            <input
-              id="phone"
-              type="tel"
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground font-body focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-              placeholder="10-digit mobile number"
-            />
-            {errors.phone && <p className="text-destructive text-xs mt-1 font-body">{errors.phone}</p>}
-          </div>
-
-          {/* Requirement */}
-          <div>
-            <label htmlFor="requirement" className="block text-sm font-body text-muted-foreground mb-1">Requirement *</label>
-            <select
-              id="requirement"
-              value={form.requirement}
-              onChange={(e) => setForm({ ...form, requirement: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground font-body focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-            >
-              <option value="">Select your requirement</option>
-              {requirementOptions.map((opt) => (
-                <option key={opt} value={opt}>{opt}</option>
-              ))}
-            </select>
-            {errors.requirement && <p className="text-destructive text-xs mt-1 font-body">{errors.requirement}</p>}
-          </div>
-
-          {/* Message */}
-          <div>
-            <label htmlFor="message" className="block text-sm font-body text-muted-foreground mb-1">Message (optional)</label>
-            <textarea
-              id="message"
-              rows={3}
-              value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground font-body focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none"
-              placeholder="Tell us more about your needs..."
-            />
-          </div>
-
-          {/* Submit */}
-          <button
-            type="submit"
-            disabled={submitting}
-            className="w-full flex items-center justify-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-body font-semibold rounded-lg hover:bg-gold-hover transition-colors disabled:opacity-50"
+        <div className="grid md:grid-cols-[1fr_1fr] gap-12 max-w-5xl mx-auto items-start">
+          {/* Benefits */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-6"
           >
-            {submitting ? "Submitting..." : <>Submit Inquiry <Send size={16} /></>}
-          </button>
+            <h3 className="font-heading text-2xl font-bold text-foreground">Why Partner With Us?</h3>
+            {[
+              "Multi-brand ecosystem with 50+ properties across India",
+              "Dedicated support team — replies within 2 hours",
+              "Trusted by 1000+ clients for hospitality excellence",
+              "Transparent pricing with no hidden costs",
+              "End-to-end solutions from booking to checkout",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <CheckCircle size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                <p className="font-body text-muted-foreground">{item}</p>
+              </div>
+            ))}
+          </motion.div>
 
-          {/* Privacy notice */}
-          <p className="flex items-center justify-center gap-1 text-xs text-muted-foreground font-body text-center">
-            <Shield size={12} className="text-primary" />
-            Your data is never shared with third parties.
-          </p>
-        </motion.form>
+          {/* Form */}
+          <motion.form
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            onSubmit={handleSubmit}
+            className="bg-card rounded-2xl p-6 sm:p-8 card-shadow border border-border space-y-5"
+            noValidate
+          >
+            <input type="text" name="_honey" value={form._honey} onChange={(e) => setForm({ ...form, _honey: e.target.value })} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+
+            <div>
+              <label htmlFor="name" className="block text-sm font-body font-medium text-foreground mb-1.5">Full Name *</label>
+              <input id="name" type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground font-body focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Your full name" />
+              {errors.name && <p className="text-destructive text-xs mt-1 font-body">{errors.name}</p>}
+            </div>
+
+            <div>
+              <label htmlFor="phone" className="block text-sm font-body font-medium text-foreground mb-1.5">Phone Number *</label>
+              <input id="phone" type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground font-body focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="10-digit mobile number" />
+              {errors.phone && <p className="text-destructive text-xs mt-1 font-body">{errors.phone}</p>}
+            </div>
+
+            <div>
+              <label htmlFor="requirement" className="block text-sm font-body font-medium text-foreground mb-1.5">Requirement *</label>
+              <select id="requirement" value={form.requirement} onChange={(e) => setForm({ ...form, requirement: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground font-body focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                <option value="">Select your requirement</option>
+                {requirementOptions.map((opt) => (<option key={opt} value={opt}>{opt}</option>))}
+              </select>
+              {errors.requirement && <p className="text-destructive text-xs mt-1 font-body">{errors.requirement}</p>}
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-sm font-body font-medium text-foreground mb-1.5">Message (optional)</label>
+              <textarea id="message" rows={3} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground font-body focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="Tell us more about your needs..." />
+            </div>
+
+            <button type="submit" disabled={submitting} className="w-full flex items-center justify-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground font-body font-semibold rounded-xl hover:bg-primary/90 transition-all disabled:opacity-50 shadow-lg shadow-primary/20">
+              {submitting ? "Submitting..." : <>Submit Inquiry <Send size={16} /></>}
+            </button>
+
+            <p className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground font-body text-center">
+              <Shield size={12} className="text-accent" />
+              Your data is never shared with third parties.
+            </p>
+          </motion.form>
+        </div>
       </div>
     </section>
   );
