@@ -5,7 +5,7 @@ interface StickyMobileCTAProps {
 }
 
 const StickyMobileCTA = ({ onOpenQR }: StickyMobileCTAProps) => {
-  const whatsappNumber = "919999999999";
+  const whatsappNumber = "919058522279";
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-card/95 backdrop-blur-md border-t border-border px-4 py-3 shadow-lg">
