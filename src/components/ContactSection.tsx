@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Phone, MessageCircle, Mail, Download, MapPin, Clock } from "lucide-react";
 
 const ContactSection = () => {
-  const whatsappNumber = "919999999999";
+  const whatsappNumber = "919058522279";
 
   const downloadVCard = () => {
     const vcard = `BEGIN:VCARD
@@ -11,9 +11,10 @@ N:Yadav;Deepak
 FN:Deepak Yadav
 ORG:DSY Hospitality Pvt. Ltd.
 TITLE:Founder & Director
-TEL;TYPE=CELL:+919999999999
+TEL;TYPE=CELL:+919058522279
 EMAIL:contact@dsyhospitality.com
 URL:https://dsyhospitality.com
+ADR;TYPE=WORK:;;Knowledge Park 3;Greater Noida;Uttar Pradesh;;India
 END:VCARD`;
     const blob = new Blob([vcard], { type: "text/vcard" });
     const url = URL.createObjectURL(blob);
