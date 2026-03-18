@@ -43,7 +43,7 @@ const services = [
 const ServicesSection = () => {
   return (
     <section id="services" className="py-12 sm:py-16 lg:py-20">
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,13 +54,13 @@ const ServicesSection = () => {
           <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2">
             Our <span className="text-primary">Services</span>
           </h2>
-          <p className="font-body text-muted-foreground max-w-lg mx-auto text-sm sm:text-base">
+          <p className="font-body text-muted-foreground text-sm sm:text-base">
             Comprehensive solutions across hospitality, travel, media, and real estate.
           </p>
           <div className="w-12 h-1 bg-accent mx-auto mt-3 rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
           {services.map((service, i) => (
             <motion.div
               key={service.title}

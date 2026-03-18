@@ -10,14 +10,14 @@ const HeroSection = ({ onOpenQR }: HeroSectionProps) => {
   const whatsappNumber = "919058522279";
 
   return (
-    <section className="relative min-h-[90vh] sm:min-h-screen flex items-center overflow-hidden" id="hero">
+    <section className="relative flex items-center overflow-hidden" id="hero">
       {/* Decorative shapes */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[300px] sm:w-[500px] lg:w-[600px] h-[300px] sm:h-[500px] lg:h-[600px] bg-gradient-to-bl from-primary/8 via-accent/5 to-transparent rounded-full -translate-y-1/3 translate-x-1/4" />
         <div className="absolute bottom-0 left-0 w-[250px] sm:w-[400px] lg:w-[500px] h-[250px] sm:h-[400px] lg:h-[500px] bg-gradient-to-tr from-accent/6 via-primary/4 to-transparent rounded-full translate-y-1/3 -translate-x-1/4" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+      <div className="relative z-10 container mx-auto px-0 py-12 sm:py-16 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left content */}
           <motion.div
@@ -122,7 +122,7 @@ const HeroSection = ({ onOpenQR }: HeroSectionProps) => {
               <img
                 src={founderImg}
                 alt="Deepak Yadav - Founder & Director, DSY Hospitality Pvt. Ltd."
-                className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-2xl object-cover shadow-2xl border-4 border-white/80"
+                className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-2xl object-cover object-top shadow-2xl border-4 border-white/80"
                 loading="eager"
               />
               {/* Stats badge */}
@@ -130,19 +130,19 @@ const HeroSection = ({ onOpenQR }: HeroSectionProps) => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.8 }}
-                className="absolute -bottom-3 -left-3 bg-card rounded-xl p-3 card-shadow border border-border"
+                className="absolute -bottom-3 -left-3 bg-card rounded-xl p-2 sm:p-3 card-shadow border border-border"
               >
-                <p className="font-heading text-xl font-bold text-primary">6</p>
-                <p className="text-[10px] font-body text-muted-foreground">Active Brands</p>
+                <p className="font-heading text-lg sm:text-xl font-bold text-primary">6</p>
+                <p className="sm:text-[10px] text-[8px] font-body text-muted-foreground">Active Brands</p>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.9 }}
-                className="absolute -top-3 -right-3 bg-card rounded-xl p-3 card-shadow border border-border"
+                className="absolute -top-3 -right-3 bg-card rounded-xl p-2 sm:p-3 card-shadow border border-border"
               >
-                <p className="font-heading text-xl font-bold text-accent">50+</p>
-                <p className="text-[10px] font-body text-muted-foreground">Properties</p>
+                <p className="font-heading text-lg sm:text-xl font-bold text-accent">50+</p>
+                <p className="sm:text-[10px] text-[8px] font-body text-muted-foreground">Properties</p>
               </motion.div>
             </div>
           </motion.div>

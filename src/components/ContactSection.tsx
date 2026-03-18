@@ -27,7 +27,7 @@ END:VCARD`;
 
   return (
     <section id="contact" className="py-12 sm:py-16 lg:py-20">
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ END:VCARD`;
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="max-w-xl mx-auto grid grid-cols-2 gap-3"
+          className="grid sm:grid-cols-2 gap-3"
         >
           <a href="tel:+919058522279" className="flex items-center gap-3 p-3 sm:p-4 rounded-xl bg-card border border-border hover:border-primary/30 transition-all group card-shadow" aria-label="Call">
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors flex-shrink-0">

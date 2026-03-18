@@ -64,7 +64,7 @@ const QRShareModal = ({ open, onClose }: QRShareModalProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/30 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-50 flex items-center sm:items-start justify-center bg-foreground/30 backdrop-blur-sm p-4"
           onClick={onClose}
         >
           <motion.div
@@ -72,7 +72,7 @@ const QRShareModal = ({ open, onClose }: QRShareModalProps) => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-sm bg-card border border-border rounded-2xl p-8 text-center card-shadow"
+            className="relative w-full max-w-sm bg-card border border-border rounded-2xl p-8 text-center card-shadow sm:mt-40"
           >
             <button onClick={onClose} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors" aria-label="Close">
               <X size={20} />

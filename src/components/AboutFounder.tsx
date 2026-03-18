@@ -14,8 +14,7 @@ const badges = [
 const AboutFounder = () => {
   return (
     <section id="about" className="py-12 sm:py-16 lg:py-20">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="max-w-5xl mx-auto">
+      <div className="container mx-auto px-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +42,7 @@ const AboutFounder = () => {
               <img
                 src={founderImg}
                 alt="Deepak Yadav - Founder of DSY Hospitality"
-                className="relative w-48 h-56 sm:w-56 sm:h-64 md:w-64 md:h-72 rounded-2xl object-cover shadow-xl border-4 border-white"
+                className="relative w-48 h-56 sm:w-56 sm:h-64 md:w-64 md:h-72 rounded-2xl object-cover object-top shadow-xl border-4 border-white"
                 loading="lazy"
               />
             </div>
@@ -52,10 +51,10 @@ const AboutFounder = () => {
             <div>
               <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-3 text-center md:text-left">Deepak Yadav</h3>
               <p className="font-body text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                Deepak Yadav is the visionary founder behind DSY Hospitality Pvt. Ltd., 
-                a rapidly growing ecosystem spanning hospitality, travel, media, premium living, and FMCG. 
-                Based in Greater Noida, he leads six distinct brands that serve thousands of customers 
-                across India. His passion lies in creating exceptional experiences — from booking the perfect 
+                Deepak Yadav is the visionary founder behind DSY Hospitality Pvt. Ltd.,
+                a rapidly growing ecosystem spanning hospitality, travel, media, premium living, and FMCG.
+                Based in Greater Noida, he leads six distinct brands that serve thousands of customers
+                across India. His passion lies in creating exceptional experiences — from booking the perfect
                 venue to delivering pure mineral water to every doorstep.
               </p>
 
@@ -80,7 +79,6 @@ const AboutFounder = () => {
               </div>
             </div>
           </motion.div>
-        </div>
       </div>
     </section>
   );

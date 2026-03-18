@@ -50,7 +50,7 @@ const LeadCaptureSection = () => {
 
   return (
     <section id="lead-capture" className="py-12 sm:py-16 lg:py-20 bg-secondary/50">
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ const LeadCaptureSection = () => {
           <div className="w-12 h-1 bg-accent mx-auto mt-3 rounded-full" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto items-start">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-start">
           {/* Benefits */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -73,7 +73,7 @@ const LeadCaptureSection = () => {
             viewport={{ once: true }}
             className="space-y-3 sm:space-y-4"
           >
-            <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground">Why Partner With Us?</h3>
+            <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground text-center sm:text-start">Why Partner With Us?</h3>
             {[
               "Multi-brand ecosystem with 50+ properties across India",
               "Dedicated support team — replies within 2 hours",
